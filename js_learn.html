@@ -1,0 +1,149 @@
+<script>
+    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Language_overview#%E6%A6%82%E8%A7%88
+    console.log(b);
+    var a = 3 + 4 + "5";
+    console.log(a);
+    var result = 0.1 + 0.2 == 0.30000000000000004;
+
+    console.log(result);
+    console.log(0.1+0.2);
+
+    var b = 3;
+    console.log(b);
+
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // 定义一个对象
+    var You = new Person("You", 24);
+    this.name = "name";
+    console.log(You.name);
+
+
+
+    function avg() {
+        var sum = 0;
+        for (var i = 0, j = arguments.length; i < j; i++) {
+            sum += arguments[i];
+        }
+        return sum / arguments.length;
+    }
+
+    function avg2(...args) {
+        var sum = 0;
+        for (let value of args) {
+            sum += value;
+        }
+        return sum / args.length;
+    }
+
+    averge = avg(2, 3, 4, 5); // 3.5
+    console.log(averge);
+    averge = avg2(2, 3, 4, 5); // 3.5
+    console.log(averge);
+
+
+    function makePerson(first, last) {
+        return {
+            first: first,
+            last: last,
+            fullName: function () {
+            return this.first + " " + this.last;
+            },
+            fullNameReversed: function () {
+            return this.last + ", " + this.first;
+            },
+        };
+    }
+    s = makePerson("Simon", "Willison");
+    s.fullName(); // "Simon Willison"
+    s.fullNameReversed(); // Willison, Simon
+
+
+
+    function Person2(first, last) {
+        this.first = first;
+        this.last = last;
+        this.fullName = function () {
+            return this.first + " " + this.last;
+        };
+        this.fullNameReversed = function () {
+            return this.last + ", " + this.first;
+        };
+    }
+    var s = new Person2("Simon", "Willison");
+
+
+
+
+    function Person3(first, last) {
+        this.first = first;
+        this.last = last;
+    }
+    Person3.prototype.fullName = function () {
+        return this.first + " " + this.last;
+    };
+    Person3.prototype.fullNameReversed = function () {
+        return this.last + ", " + this.first;
+    };
+
+
+    s = new Person3("Simon", "Willison");
+    // s.firstNameCaps(); // TypeError on line 1: s.firstNameCaps is not a function
+
+    Person3.prototype.firstNameCaps = function () {
+        return this.first.toUpperCase();
+    };
+    // s.firstNameCaps(); // SIMON
+    console.log(s.firstNameCaps());
+
+
+
+    var s = "Simon";
+    // s.reversed(); // TypeError on line 1: s.reversed is not a function
+
+    String.prototype.reversed = function () {
+        var r = "";
+        for (var i = this.length - 1; i >= 0; i--) {
+            r += this[i];
+        }
+        return r;
+    };
+    s.reversed(); // nomiS
+    console.log(s.reversed());
+
+    console.log("This can now be reversed".reversed());
+
+
+
+
+    function makeAdder(a) {
+        return function (b) {
+            return a + b;
+        };
+    }
+    var add5 = makeAdder(5);
+    var add20 = makeAdder(20);
+    var result6 = add5(6); // ?
+    var result7 = add20(7); // ?
+    console.log(result6);
+    console.log(result7);
+
+    function block(var1 , block2){
+        if(block2){
+           return var1 + block2();
+        }
+    }
+
+
+    function block2(){
+        return 10;
+    }
+    var result_block = block(20, block2);
+    console.log(result_block);
+
+
+</script>
