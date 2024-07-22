@@ -178,3 +178,35 @@ footer {
   color: white;
   text-decoration: none;
 }
+
+.horizontal-div {
+  display: inline-grid;
+  grid-template-columns: 66% 33%;
+  gap: 10px;
+  width: 100%;
+  height: 500px;
+}
+
+.horizontal-div-box1{
+  flex: 2; /* 每个盒子占据同样的宽度 */
+  padding: 20px;
+  border: 1px solid #000;
+  margin: 10px;
+}
+.horizontal-div-box2{
+  flex: 1; /* 每个盒子占据同样的宽度 */
+  padding: 20px;
+  border: 1px solid #000;
+  margin: 10px;
+}
+
+.grid-container{ 
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 创建两列 */
+  gap: 10px; /* 网格项之间的间距 */
+}
+
+.grid-container a img{
+  width: 100%;
+  height: 100%;
+}
